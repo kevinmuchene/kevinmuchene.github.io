@@ -1,0 +1,179 @@
+@media screen and (max-width: 600px) {
+
+    .div-wrapper{
+    
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "menus"
+        "columns"
+        "footer"
+    ;
+}
+
+
+.menus{
+    grid-area: menus;
+    background-color: rgb(32, 98, 102);
+    
+    display: flex;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 75px;
+
+}
+
+.col1{
+   
+    grid-area: col1;
+}
+.col2{
+    grid-area: col2;
+}
+.col3{
+   
+    grid-area: col3;
+}
+
+
+.columns{
+    grid-area: columns;
+    display: flex;
+    height: 395px;
+    display: grid;
+    grid-template-areas: 
+        "col1 col2"
+        "col3 col3"
+    ;
+}
+
+
+}
+
+@media screen and (min-width: 600px) {
+    .div-wrapper{
+    /* padding: 1em; */
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "menus"
+        "columns"
+        "footer"
+    ;
+}
+
+
+.menus{
+    grid-area: menus;
+    background-color: rgb(32, 98, 102);
+    
+    display: flex;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 75px;
+    
+
+}
+.menus > h4{
+    border-color: black;
+    border-style: groove;
+    border-width: 0 2px 0 0;
+    padding: 15px;
+    
+    margin: 0;
+}
+
+
+.col1{
+    
+    flex-grow: 1;
+}
+.col2{
+    
+    flex-grow: 2;
+}
+.col3{
+    
+    flex-grow: 1;
+}
+
+
+.columns{
+    grid-area: columns;
+    display: flex;
+    height: 395px;
+    
+    
+}
+.columns > p{
+    margin: 0;
+    font-size: 25px;
+    padding: 10px;
+    
+    
+}
+}
+
+
+.header{
+    grid-area: header;
+    background-color: aquamarine;
+    
+    height: 100px;
+    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.header > p {
+    font-size: 55px;
+    
+    font-weight: bold;
+}
+
+body{
+    margin:0;
+    padding:0;
+}
+.col1{
+    background-color: #696969;
+    margin:0;
+}
+.col2{
+    background-color: #a9a9a9;
+    margin:0;
+    
+}
+.col3{
+    background-color:#808080;
+    margin:0;
+}
+.menus > h4{
+    border-color: black;
+    border-style: groove;
+    border-width: 0 2px 0 0;
+    padding: 15px;
+    
+    margin: 0;
+}
+.footer{
+    grid-area: footer;
+    
+    background-color: rgb(32, 98, 102); 
+
+    height: 75px;
+    text-align: center;
+    color: white;
+    
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer > p {
+    margin: 0;
+}

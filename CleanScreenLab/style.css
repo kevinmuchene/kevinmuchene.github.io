@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px blue groove;
+    flex-direction: column;
+    }
+
+.circle{
+    background-color: rgb(14, 14, 235);
+    width: 50px;
+    height: 50px;
+    border: 2px rgb(255, 0, 144) groove;
+    border-radius: 50%;
+    }

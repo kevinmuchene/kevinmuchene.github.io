@@ -3,12 +3,16 @@ const express = require("express");
 const app = express();
 
 const path = require("path");
-app.use(express.urlencoded);
+app.use(express.urlencoded({ extedend: false }));
 app.use("/css", express.static(path.join(__dirname, "css")));
+
+// app.use(express.static("css"));
 
 app.get("/", (req, res) => {
   const date = new Date();
   const hour = date.getHours();
+
+  console.log(path.join(__dirname, "css"));
 
   const cssStyle = hour >= 6 && hour <= 18 ? "day.css" : "night.css";
 
@@ -41,5 +45,5 @@ app.post("/result", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Listening on port 3000");
+  console.log("Listening on port 3000 please");
 });

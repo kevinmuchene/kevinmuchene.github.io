@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/shoppingCart-styles.css">
+</head>
+<body>
+<%- include('./partials/navbar') %>
+<div class="container">
+    <section class="shopping-cart dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2>Shopping Cart</h2>
+                <% if(cart.length === 0){ %>
+                    <div>
+                        No Items in Cart <a href="/" class="ml-4 btn btn-primary">Add item</a>
+                    </div>
+                <% } %>
+            </div>
+            <% if(cart.length !== 0){ %>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-8">
+                            <div class="items">
+                                <% cart.forEach( order => { %>
+                                    <div class="product">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <img class="img-fluid mx-auto d-block image"
+                                                     src="<%= order.product.image %>">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="info">
+                                                    <div class="row">
+                                                        <div class="col-md-5 product-name">
+                                                            <div class="product-name">
+                                                                <a href="#"><%= order.product.name %></a>
+                                                                <div class="product-info">
+                                                                    <div>Description:
+                                                                        <span class="value"><%= order.product.description %></span>
+                                                                    </div>
+                                                                    <div>Category:
+                                                                        <span class="value"><%= order.product.category %></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4 quantity">
+                                                            <label for="quantity">Quantity:</label>
+                                                            <input id="quantity" type="number" value="<%= order.qty %>"
+                                                                   class="form-control quantity-input">
+                                                        </div>
+                                                        <div class="col-md-3 price">
+                                                            <span>$<%= (order.price).toFixed(2) %></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="summary">
+                                <h3>Summary</h3>
+                                <div class="summary-item"><span class="text">Subtotal</span><span
+                                            class="price">$<%= totalPrice %></span>
+                                </div>
+                                <div class="summary-item"><span class="text">Discount</span><span
+                                            class="price">$0</span>
+                                </div>
+                                <div class="summary-item"><span class="text">Shipping</span><span
+                                            class="price">$0</span>
+                                </div>
+                                <div class="summary-item"><span class="text">Total</span><span
+                                            class="price">$<%= totalPrice %></span>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/product-styles.css">
+    <script src="/javascript/index.js"></script>
+</head>
+<body>
+<%- include('./partials/navbar', {cartItems}) %>
+<div class="container" id="container">
+    <h2 class="text-center py-2">Refresh to get new Random product from DB</h2>
+    <div class="container d-flex justify-content-center">
+        <figure class="card card-product-grid card-lg">
+            <a href="#" class="img-wrap" data-abc="true">
+                <img src="<%= product.image%>">
+            </a>
+            <figcaption class="info-wrap">
+                <div class="row">
+                    <div class="col-md-9 col-xs-9">
+                        <a href="#" class="title" data-abc="true"><%= product.name %></a>
+                        <span class="rated"><%= product.description %></span>
+                    </div>
+                    <div class="col-md-3 col-xs-3">
+                        <div class="rating text-right">
+                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                            <span class="rated">Rated 4.0/5</span>
+                        </div>
+                    </div>
+                </div>
+            </figcaption>
+            <div class="bottom-wrap-payment">
+                <figcaption class="info-wrap">
+                    <div class="row">
+                        <div class="col-md-9 col-xs-9">
+                            <a href="#" class="title" data-abc="true">$<%= product.price %></a>
+                            <span class="rated">VISA/MasterCard</span>
+                        </div>
+                        <div class="col-md-3 col-xs-3">
+                            <div class="rating text-right"> Id: <%= product.id%></div>
+                        </div>
+                    </div>
+                </figcaption>
+            </div>
+            <div class="bottom-wrap">
+                <form id="addToCart">
+                    <input type="hidden" name="id" id="id" value="<%= product.id%>">
+                    <button type="submit" class="btn btn-primary float-right" data-abc="true">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </form>
+                <a href="#" class="btn btn-warning float-left" data-abc="true"> Cancel </a>
+            </div>
+        </figure>
+    </div>
+</div>
+</body>
+</html>
